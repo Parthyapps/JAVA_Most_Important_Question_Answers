@@ -1,10 +1,12 @@
 # JAVA_Most_Important_Question_Answers
    - Object-Oriented Programming (OOP) in Java is a programming style that revolves around objects and their interactions. Here are the four main OOP concepts explained simply with examples:
 
-- 1. Encapsulation
-     - Protects data by hiding it behind methods. Ex:getName, setName
-  - Encapsulation is the bundling of data (variables) and methods (functions) that operate on the data into a single unit (class). It also restricts direct access to some components to protect the integrity of the data.
-  - Private data can only be accessed or modified using public methods.
+# 1. Encapsulation
+
+   - Protects data by hiding it behind methods. Ex:getName, setName
+   - Encapsulation is the bundling of data (variables) and methods (functions) that operate on the data into a single unit (class). It also restricts direct access to some components to protect the integrity of the data.
+   - Private data can only be accessed or modified using public methods.
+
 ```kotlin
 class Person {
     private String name; // Private variable (hidden from outside)
@@ -29,7 +31,10 @@ public class Main {
 }
 ```
 2.Polymorphism
-    - One interface, multiple implementations. Ex:Overloading, Overriding
+    
+    - One Task is performed in different ways it is know as polymorphism, 
+      multiple implementations. Ex:Overloading, Overriding
+    - allows you to define one 
     - Polymorphism allows one interface to be used for multiple forms (methods or objects). It is achieved through method overloading and method overriding.
     Key Point: Polymorphism allows flexibility by treating objects differently based on their type.
 ```kotlin
