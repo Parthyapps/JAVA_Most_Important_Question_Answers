@@ -135,15 +135,6 @@ public class Main {
     }
 }
 ```
-
-# Thread
-
-A Thread is a lightweight sub-process, a unit of execution within a process. Java provides support for multithreading to allow concurrent execution of two or more threads.
-
-# Thread Pool
-
-A Thread Pool is a collection of pre-instantiated reusable threads managed by a framework. Instead of creating new threads for every task, the thread pool reuses threads to optimize resource usage and improve performance.
-    
 # String Pool
 
 The String Pool, also known as the String Intern Pool, is a memory optimization technique in Java. It stores a single copy of each unique string literal in a special memory area within the Heap.
@@ -152,19 +143,74 @@ Key Features of the String Pool
     Memory Efficiency: Reduces memory usage by reusing string literals.
     Immutability: Strings are immutable, so they can be safely shared.
     Performance: Faster comparison due to reference equality (==).
-
-Thread:
+    
+# Thread
+A thread is the smallest unit or part of execution in a program. It allows you to perform multiple tasks concurrently. Java provides support for multithreading to allow concurrent execution of two or more threads.
 
     Used for tasks like downloading data, processing images, or handling background tasks.
     Avoid direct thread creation for UI updates; use Handler, AsyncTask (deprecated), Coroutines, or Executors.
 
-Thread Pool:
+    public class MyThread extends Thread {
+    @Override
+    public void run() {
+        System.out.println("Thread is running");
+    }
+
+    public static void main(String[] args) {
+        MyThread thread = new MyThread();
+        thread.start(); // Starts the thread
+    }
+    }
+
+# Thread Pool
+A thread pool is a collection of pre-initialized threads that can be reused to execute multiple tasks. It avoids the overhead of creating and destroying threads repeatedly.
 
     Essential for managing multiple background tasks efficiently in Android.
     The Executors framework or libraries like WorkManager and RxJava internally manage thread pools.
+    
+    import java.util.concurrent.ExecutorService;
+    import java.util.concurrent.Executors;
+
+    public class ThreadPoolExample {
+    public static void main(String[] args) {
+        // Create a thread pool with 2 threads
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+
+        // Submit tasks to the thread pool
+        executor.submit(() -> System.out.println("Task 1"));
+        executor.submit(() -> System.out.println("Task 2"));
+
+        // Shutdown the thread pool
+        executor.shutdown();
+    }
+    }
+
+String 
+A String is an immutable sequence of characters in Java.
+    String str = "Hello, World!";
+        System.out.println(str);
 
 String Pool:
+The String Pool is a special memory area in Java where String literals are stored. It helps save memory by reusing identical strings.
 
     Reduces memory overhead for string-heavy applications.
     Immutability makes strings safe to use across threads.
 
+    public class StringPoolExample {
+    public static void main(String[] args) {
+        String str1 = "Hello"; // Stored in String Pool
+        String str2 = "Hello"; // Reuses the same object from String Pool
+        String str3 = new String("Hello"); // Creates a new object in heap memory
+
+        System.out.println(str1 == str2); // true (same reference)
+        System.out.println(str1 == str3); // false (different references)
+    }
+    }
+
+Multithread Management in Android  
+In Android, multithreading is essential to perform background tasks without blocking the main UI thread. Common tools include:
+
+    AsyncTask (Deprecated in API level 30)
+    HandlerThread
+    Executors
+    Coroutines (Kotlin)
