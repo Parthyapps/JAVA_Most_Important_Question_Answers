@@ -92,3 +92,13 @@ In Android, multithreading is essential to perform background tasks without bloc
     HandlerThread
     Executors
     Coroutines (Kotlin)
+
+Garbage Collection (GC) is the process of automatically freeing up memory by removing objects that are no longer in use. Java handles this automatically, so developers don’t need to manually manage memory.
+    Object Creation: When you create an object (e.g., new String("Hello")), it’s allocated in the heap memory.
+
+    Reference Tracking: The JVM keeps track of all object references.
+    Unreferenced Objects: Objects that are no longer referenced by any part of the program are considered "garbage."
+    Garbage Collection Process:
+        The JVM runs the Garbage Collector periodically.
+        The GC identifies unreferenced objects and frees up their memory.
+        The freed memory can then be reused for new objects.
