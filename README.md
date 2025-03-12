@@ -4,7 +4,7 @@
     Thread Pool: Use a thread pool to manage multiple image downloads efficiently.
     String: Store image URLs as strings.
     String Pool: Reuse identical URLs stored in the string pool.
-    Multithread Management: Ensure the app remains responsive by managing threads properly.
+    Multithread Management: Multithreading in Java is a feature that allows concurrent execution of two or more threads, enabling a program to perform multiple tasks simultaneously
 
    - Object-Oriented Programming (OOP) in Java is a programming style that revolves around objects and their interactions. Here are the four main OOP concepts explained simply with examples:
 
