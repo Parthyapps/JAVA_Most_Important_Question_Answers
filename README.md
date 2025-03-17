@@ -13,6 +13,19 @@
     ✔️ Polymorphism → Retrofit interface allows multiple API functions.
     ✔️ Abstraction → NewsDataSource hides API implementation details.shows only neccessary action.
 
+# StringBuilder vs StringBuffer in Java
+- Both StringBuilder and StringBuffer are used for mutable (modifiable) sequences of characters, unlike String, which is immutable.
+
+1️⃣ StringBuffer
+- Thread-safe ✅ (Synchronized methods)
+- Performance: Slower due to synchronization overhead.
+- Usage: Use when multiple threads are modifying the same string.
+  
+2️⃣ StringBuilder
+- ❌ Not thread-safe (No synchronization)
+- Performance: Faster than StringBuffer
+- Usage: Use when working in a single-threaded environment.
+
 # String Pool
 
 The String Pool, also known as the String Intern Pool, is a memory optimization technique in Java. It stores a single copy of each unique string literal in a special memory area within the Heap.
@@ -23,22 +36,17 @@ Key Features of the String Pool
     Performance: Faster comparison due to reference equality (==).
     
 # Thread
-A thread is the smallest unit or part of execution in a program. It allows you to perform multiple tasks concurrently. Java provides support for multithreading to allow concurrent execution of two or more threads.
+- A thread in Java is a lightweight process that allows concurrent execution of tasks. Java supports multithreading to improve performance and responsiveness.
+- Android uses threads to perform background tasks without blocking the main UI thread. If a task takes too long on the main thread, the app can become unresponsive and throw an ANR (Application Not Responding) error.
 
-    Used for tasks like downloading data, processing images, or handling background tasks.
-    Avoid direct thread creation for UI updates; use Handler, AsyncTask (deprecated), Coroutines, or Executors.
-
-    public class MyThread extends Thread {
-    @Override
-    public void run() {
-        System.out.println("Thread is running");
-    }
-
-    public static void main(String[] args) {
-        MyThread thread = new MyThread();
-        thread.start(); // Starts the thread
-    }
-    }
+        Used for tasks like downloading data, processing images, or handling background tasks.
+        Avoid direct thread creation for UI updates; use Handler, AsyncTask (deprecated), Coroutines, or Executors.
+        Thread {
+            val data = fetchData()  // Some long-running task
+            runOnUiThread { 
+                textView.text = data // ✅ Updating UI safely
+            }
+        }.start()
 
 # Thread Pool
 A thread pool is a collection of pre-initialized threads that can be reused to execute multiple tasks. It avoids the overhead of creating and destroying threads repeatedly.
@@ -62,6 +70,21 @@ A thread pool is a collection of pre-initialized threads that can be reused to e
         executor.shutdown();
     }
     }
+
+# Handler & Runnable in Android – When & Where to Use?
+- In Android, Handler and Runnable are primarily used for delayed execution, scheduling tasks, and communicating with the main (UI) thread from a background thread.
+
+- Alternative: Why Use Coroutines Instead?
+Instead of Handler.postDelayed(), Kotlin Coroutines provide better lifecycle-aware handling.
+
+lifecycleScope.launch {
+    delay(3000)
+    textView.text = "Updated after 3 seconds"
+}
+
+- Use Handler when working with UI thread (scheduling, UI updates).
+- Use Runnable for simple tasks in a new thread (if no UI update is needed).
+- Prefer Coroutines (delay(), Dispatchers) for modern Android development
 
 String 
 A String is an immutable sequence of characters in Java.
