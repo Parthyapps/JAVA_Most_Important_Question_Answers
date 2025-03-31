@@ -109,7 +109,7 @@ The String Pool is a special memory area in Java where String literals are store
     }
 
 Multithread Management in Android  
-In Android, multithreading is essential to perform background tasks without blocking the main UI thread. Common tools include:
+-In Android, multithreading is essential to perform background tasks without blocking the main UI thread. Common tools include:
 
     AsyncTask (Deprecated in API level 30)
     HandlerThread
