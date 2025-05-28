@@ -7,7 +7,13 @@
     Multithread Management: Multithreading in Java is a feature that allows concurrent execution of two or more threads, enabling a program to perform multiple tasks simultaneously
 
    - Object-Oriented Programming (OOP) in Java is a programming style that revolves around objects and their interactions. Here are the four main OOP concepts explained simply with examples:
+   - OBjects,Class
+   - Abstraction
+   - Encapsulation
+   - Inheritance
+   - Polymorphism
 
+    ✔️ Object is an instance of the class having instance variables state and methods behavior.
     ✔️ Encapsulation → Repository class hides API logic. Encapsulation ensures data is not directly accessed. Instead, the Repository class handles all API logic.
     ✔️ Inheritance → ViewModel inherits common logic from BaseViewModel.
     ✔️ Polymorphism → Retrofit interface allows multiple API functions.
